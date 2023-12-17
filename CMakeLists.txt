@@ -20,36 +20,15 @@
 
 
 add_executable(ldpc_encoder_benchmark ldpc_encoder_benchmark.cpp)
-#link_directories(/home/ubuntu/perf_cycle_codes/)
-######link_directories(/home/ubuntu/linux-5.17.4/tools/lib/perf/ /home/ubuntu/linux-5.17.4/tools/lib/api/ /home/ubuntu/perf_cycle_codes/)
-##target_link_libraries(ldpc_encoder_benchmark srsran_channel_coding srslog /home/ubuntu/perf_cycle_codes/pmuv3_dummy.a /home/ubuntu/linux-5.17.4/tools/lib/perf/libperf.a /home/ubuntu/linux-5.17.4/tools/lib/api/libapi.a)
-#target_link_libraries(ldpc_encoder_benchmark srsran_channel_coding srslog /home/ubuntu/perf_cycle_codes/pmuv3.a /home/ubuntu/linux-5.17.4/tools/lib/perf/libperf.a /home/ubuntu/linux-5.17.4/tools/lib/api/libapi.a)
 
 target_include_directories(ldpc_encoder_benchmark PRIVATE /home/ubuntu/linux/tools/lib/perf/include)
 target_link_libraries(ldpc_encoder_benchmark srsran_channel_coding srslog /home/ubuntu/perf_cycle_codes/pmuv3_plugin.a /home/ubuntu/perf_cycle_codes/libperf.a /home/ubuntu/perf_cycle_codes/libapi.a)
 
 
-#target_link_libraries(ldpc_encoder_benchmark srsran_channel_coding srslog /home/ubuntu/perf_cycle_codes/pmuv3_plugin.a /home/ubuntu/linux-5.17.4/tools/lib/perf/libperf.a /home/ubuntu/linux-5.17.4/tools/lib/api/libapi.a)
-
-#target_link_libraries(ldpc_encoder_benchmark srsran_channel_coding srslog /home/ubuntu/linux-5.17.4/tools/lib/perf/libperf.a /home/ubuntu/linux-5.17.4/tools/lib/api/libapi.a /home/ubuntu/perf_cycle_codes/pmuv3.a)
-#target_link_libraries(ldpc_encoder_benchmark /home/ubuntu/linux-5.17.4/tools/lib/perf/libperf.a) #added by Gayathri
-#target_link_libraries(ldpc_encoder_benchmark /home/ubuntu/linux-5.17.4/tools/lib/api/libapi.a) #added by Gayathri
-#target_include_directories(ldpc_encoder_benchmark PRIVATE /home/ubuntu/linux-5.17.4/tools/)
-#target_include_directories(ldpc_encoder_benchmark PRIVATE /home/ubuntu/linux-5.17.4/tools/lib/perf/include/perf)
-#include_directories(/home/ubuntu/linux-5.17.4/include)
 add_test(ldpc_encoder_benchmark ldpc_encoder_benchmark -s -R 1 -T generic)
 
 add_executable(ldpc_decoder_benchmark ldpc_decoder_benchmark.cpp)
 target_link_libraries(ldpc_decoder_benchmark srsran_channel_coding srslog)
 add_test(ldpc_decoder_benchmark ldpc_decoder_benchmark -s -R 1 -I 2 -T generic)
 
-#add_executable(testcase testcase.c)
-#include_directories(/home/ubuntu/linux-5.17.4/tools/lib/perf)
-#target_link_libraries(testcase /home/ubuntu/linux-5.17.4/tools/lib/perf/libperf.a)
-#target_link_libraries(testcase /home/ubuntu/linux-5.17.4/tools/lib/api/libapi.a)
-#add_executable(pmuv3_cycle pmuv3_cycle.c)
-#include_directories(/home/ubuntu/linux-5.17.4/tools/lib/perf)
-#target_link_libraries(pmuv3_cycle /home/ubuntu/linux-5.17.4/tools/lib/perf/libperf.a)
-#target_link_libraries(pmuv3_cycle /home/ubuntu/linux-5.17.4/tools/lib/api/libapi.a)
-set(CMAKE_VERBOSE_MAKEFILE ON)
 
